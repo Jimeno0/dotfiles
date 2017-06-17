@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/CharlieMac/Documents/GitHub-repos/GeoPorra/.git'
+let g:netrw_dirhist_2='/Users/CharlieMac/Documents/GitHub-repos/GeoPorra'
+let g:netrw_dirhist_3='/Users/CharlieMac/Documents/GitHub-repos'
+let g:netrw_dirhist_4='/Users/CharlieMac/Documents'
+let g:netrw_dirhist_5='/Users/CharlieMac'
+let g:netrw_dirhist_6='/Users'

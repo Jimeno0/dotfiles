@@ -1,0 +1,139 @@
+"------------------------------------------
+
+"START OF CUSTOM .VIMRC PUGINGS & SETTINGS
+
+"-----------------------------------------
+"PLGGINS (to install save & quit &  run :PlugInstall)
+
+call plug#begin('~/.vim/plugged')
+
+  Plug 'moll/vim-node' "use gf to go to required file
+  Plug 'Raimondi/delimitMate' "auto close quotes and brackets
+  "Plug 'alvan/vim-closetag' "auto close tags 
+  Plug 'ervandew/supertab' " autocomplete on tabs
+  Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
+  Plug 'w0rp/ale'
+  Plug 'joshdick/onedark.vim'
+  Plug 'tpope/vim-fugitive'
+  Plug 'scrooloose/nerdtree'
+  Plug 'tyrannicaltoucan/vim-quantum'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'mileszs/ack.vim'
+  "stands for https://github.com/tpope/vim-surround  replace cs'"     cs'<q>
+  Plug 'tpope/vim-surround' 
+ 
+call plug#end()
+
+"-------
+"stolen from https://github.com/jackfranklin/dotfiles/blob/master/vim/vimrc
+"most of this .vimrc was stolen from the awesome jack dotfiles
+
+"" status bar
+set laststatus=2 "always display
+set statusline=%F%m%r%h%w\  "fullpath and status modified sign
+set statusline+=\ 🐙 
+set statusline+=\ %{fugitive#statusline()} "show GIT
+set statusline+=\ %{ALEGetStatusLine()} "show ALE errors
+
+set statusline+=%= "send next to the rigt
+set statusline+=\ 🔥 
+set statusline+=\ %l\:%c "line column
+
+
+"------
+"?¿Not sure what it does 
+set autoread
+set wildmode=full
+
+"remap leader key (default \) to , and add functions
+let mapleader = ","
+nnoremap <leader>l :buffers<cr>
+nnoremap <leader>b :bp<cr>
+nnoremap <leader>n :bp<cr>
+nnoremap <leader>f :FZF<cr>
+nnoremap <leader>s :NERDTree<cr>
+nmap <leader>a :Ack! --ignore-dir=node_modules --ignore-dir=dist --ignore-dir=build --ignore-dir=coverage --ignore-dir=src/messages ""<Left>
+"better copy files ( to be able to do cmd+v)
+noremap Y "*y
+
+set nu "show line number
+set scrolloff=5 "offset of 5 rows on scroll (top/button) 
+set breakindent "Mantain indent on wrapping lines
+syntax on "sintaxis highlight
+set timeout timeoutlen=500 ttimeoutlen=100 "fill delay of ESC key
+set gdefault "append /g by default to /substitutions
+set autoindent "autoindent
+set ignorecase smartcase  "ignore case in lower case searches 
+set history=10000
+" COLORS THEME
+set background=dark
+set termguicolors
+colorscheme quantum
+
+" SET ONE TAB TO TWO SPACES
+set tabstop=2 shiftwidth=2 expandtab softtabstop=2
+set backspace=indent,eol,start "set backspace normal behavoir
+
+set splitbelow " puts new splits to the bottom
+set splitright " ensures new splits are to the right of current
+
+set colorcolumn=120
+set cursorline
+hi cursorline cterm=none term=none
+highlight CursorLine ctermbg=235
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+" clear highlights by hitting ESC
+" or by hitting enter in normal mode
+nnoremap <CR> :noh<CR><CR>
+
+"Keep search matcher in the middle of the window
+nnoremap n nzzzv  
+nnoremap N Nzzzv 
+
+"FUZZY FINDER WITH :FZF
+"set ag as FZF file browser to can ignore .gitignore(need to install ag)
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+command F FZF
+
+"save temp files in the ~/vimtemp folder
+"set backupdir=~/vimtmp,.
+"set directory=~/vimtmp,.
+
+"do not make backups
+set nowritebackup
+set noswapfile
+set nobackup
+
+"AUTOCOMPLETE MENU
+set wildmenu
+
+"HIGLIGHT SELECTION
+set hls
+set is
+
+" SAVE/QUIT CON CAPITALIZE ASWELL
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
+"ALE SETTINGS
+let g:ale_linters = {
+\   'javascript': ['eslint']
+\}
+
+let g:ale_sign_error = '->'
+let g:ale_fixers = {}
+let g:ale_fixers.javascript = [
+\ 'eslint',
+\]
+
+let g:ale_fix_on_save = 1
+
+
+"ENABLE JSX FOT ALL FILE EXTENSIONS
+let g:jsx_ext_required = 0
+
+
