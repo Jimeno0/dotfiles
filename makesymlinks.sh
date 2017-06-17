@@ -1,8 +1,7 @@
-dir=~/dotfiles                    # dotfiles directory
+# dotfiles directory
+DIR=~/dotfiles                    
 
-all:
-	@echo "Run things individually!"
+# Create symlinks to home
 
-symlinks:
-	@ln -sf $(DIR)/vim/vimrc ~/.vimrc
-	@ln -nsf $(DIR)/vim/vim ~/.vim
+ln -sfv "${DIR}/vim/vimrc" ~/.vimrc
+ln -sfv "${DIR}/vim/vim" ~/.vim
