@@ -1,7 +1,7 @@
 
 
->[jimeno0](www.jimeno0.com) dotfiles
+>[jimeno0](http://www.jimeno0.com) dotfiles
 
-##Current dotfiles
+## Current dotfiles
 
 * vim
