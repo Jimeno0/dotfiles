@@ -23,8 +23,22 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround' 
   Plug 'hail2u/vim-css3-syntax' "CSS styles syntax
   Plug 'fleischie/vim-styled-components' "CSS styled components
+
+  "UtilSnippets
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
  
 call plug#end()
+
+
+"UtilSnippets trigger config
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 "-------
 "stolen from https://github.com/jackfranklin/dotfiles/blob/master/vim/vimrc
