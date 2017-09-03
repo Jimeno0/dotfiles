@@ -21,6 +21,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'mileszs/ack.vim'
   "stands for https://github.com/tpope/vim-surround  replace cs'"     cs'<q>
   Plug 'tpope/vim-surround' 
+  Plug 'hail2u/vim-css3-syntax' "CSS styles syntax
+  Plug 'fleischie/vim-styled-components' "CSS styled components
  
 call plug#end()
 
@@ -39,6 +41,7 @@ set statusline+=%= "send next to the rigt
 set statusline+=\ 🔥 
 set statusline+=\ %l\:%c "line column
 
+let NERDTreeShowHidden=1 "show hidden files @nerdtree
 
 "------
 "?¿Not sure what it does 
@@ -52,9 +55,12 @@ nnoremap <leader>b :bp<cr>
 nnoremap <leader>n :bp<cr>
 nnoremap <leader>f :FZF<cr>
 nnoremap <leader>s :NERDTree<cr>
-nmap <leader>a :Ack! --ignore-dir=node_modules --ignore-dir=dist --ignore-dir=build --ignore-dir=coverage --ignore-dir=src/messages ""<Left>
+nmap <leader>a :Ack! --ignore-dir=node_modules --ignore-dir=.next --ignore-dir=dist --ignore-dir=build --ignore-dir=coverage --ignore-dir=src/messages ""<Left>
 "better copy files ( to be able to do cmd+v)
 noremap Y "*y
+noremap y "*y
+noremap yy "*yy
+
 
 set nu "show line number
 set scrolloff=5 "offset of 5 rows on scroll (top/button) 
