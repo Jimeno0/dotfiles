@@ -1,6 +1,133 @@
 snippet t "jsx tag"
-	<${1:div}>
-		$0
-	</${1/(\w+).*/$1/}>
+<${1:div}>
+	$0
+</${1/(\w+).*/$1/}>
 endsnippet
 
+snippet i "import module"
+import ${1} from '${2}'
+endsnippet
+
+
+snippet fm "formatted message"
+${1}: <FormattedMessage id='${2}.${1/(\w+).*/$1/}' defaultMessage='${3}' />,
+endsnippet
+
+
+snippet rf "react function" 
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
+const ${1} = (props) => {
+	console.log({ $1Props:props });
+  return (
+    <${2:div} className={props.className}>
+			${3}
+    </${2/(\w+).*/$1/}>
+  );
+};
+
+$1.propTypes = {
+  className: PropTypes.string.isRequired,
+};
+
+const $1Styled = styled($1)\`
+ display: flex;
+\`;
+
+export default $1Styled;
+endsnippet
+
+snippet rc "react component"
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
+class ${1} extends Component {
+	render() {
+  	return (
+  	  <${2:div} className={this.props.className}>
+				${3}
+  	  </${2/(\w+).*/$1/}>
+  	);
+	}
+};
+
+$1.propTypes = {
+  className: PropTypes.string.isRequired,
+};
+
+const $1Styled = styled($1)\`
+ display: flex;
+\`;
+
+export default $1Styled;
+endsnippet
+
+snippet cs "react constructor lifecycle"
+constructor(props){
+	super(props);
+	$1
+}
+
+endsnippet
+
+
+snippet cdm "react componentDidMount lifecycle"
+componentDidMount() {
+	$1
+}
+
+endsnippet
+
+snippet cdu "react componentDidUpdate lifecycle"
+componentDidUpdate() {
+	$1
+}
+
+endsnippet
+
+snippet rfg "react function" 
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { graphql, compose } from 'react-apollo';
+import { ${4} } from '${5}';
+import Loading from '${6}';
+
+
+const ${1} = (props) => {
+  if (props.$4.loading) return (<Loading />);
+  return (
+    <${2:div} className={props.className}>
+			${3}
+    </${2/(\w+).*/$1/}>
+  );
+};
+
+$1.propTypes = {
+  className: PropTypes.string.isRequired,
+	$4: PropTypes.shape({
+		loading: PropTypes.bool.isRequired,
+	});
+};
+
+
+const $1Styled = styled($1)\`
+    display: flex;
+\`;
+
+export default compose(
+  graphql(
+    $4,
+    {
+      name: '$4',
+    }
+  ),
+) ($1Styled);
+endsnippet
+
+snippet  log "console log"
+console.log({$1});
+endsnippet

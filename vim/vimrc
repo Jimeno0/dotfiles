@@ -16,7 +16,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'joshdick/onedark.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'scrooloose/nerdtree'
+  "color schemes
   Plug 'tyrannicaltoucan/vim-quantum'
+  Plug 'dim13/smyck.vim'
+  Plug 'jimeno0/vim-chito'
+
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'mileszs/ack.vim'
   "stands for https://github.com/tpope/vim-surround  replace cs'"     cs'<q>
@@ -35,8 +39,7 @@ call plug#end()
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
@@ -85,10 +88,14 @@ set gdefault "append /g by default to /substitutions
 set autoindent "autoindent
 set ignorecase smartcase  "ignore case in lower case searches 
 set history=10000
+
 " COLORS THEME
 set background=dark
 set termguicolors
-colorscheme quantum
+let g:quantum_italics=1
+colorscheme chito
+"colorscheme quantum
+
 
 " SET ONE TAB TO TWO SPACES
 set tabstop=2 shiftwidth=2 expandtab softtabstop=2
