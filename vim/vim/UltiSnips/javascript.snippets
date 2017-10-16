@@ -1,7 +1,5 @@
 snippet t "jsx tag"
-<${1:div}>
-	$0
-</${1/(\w+).*/$1/}>
+<${1:div}>$0</${1/(\w+).*/$1/}>
 endsnippet
 
 snippet i "import module"
@@ -13,8 +11,55 @@ snippet fm "formatted message"
 ${1}: <FormattedMessage id='${2}.${1/(\w+).*/$1/}' defaultMessage='${3}' />,
 endsnippet
 
+snippet ri "react imports"
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+endsnippet
 
 snippet rf "react function" 
+const ${1} = (props) => {
+	console.log({ $1Props:props });
+	return (
+		<${2:div} className={props.className}>
+			${3}
+		</${2/(\w+).*/$1/}>
+	);
+};
+
+export default $1;
+endsnippet
+
+snippet rc "react component"
+class ${1} extends Component {
+	render() {
+		return (
+			<${2:div} className={this.props.className}>
+				${3}
+			</${2/(\w+).*/$1/}>
+		);
+	}
+};
+
+export default $1;
+
+endsnippet
+
+snippet rp "react proptypes" 
+$1.propTypes = {
+  className: PropTypes.string.isRequired,
+};
+
+endsnippet
+
+snippet rs "react styled"
+const $1Styled = styled($1)\`
+ display: flex;
+\`;
+
+endsnippet
+
+snippet rff "react function full"
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -39,7 +84,8 @@ const $1Styled = styled($1)\`
 export default $1Styled;
 endsnippet
 
-snippet rc "react component"
+
+snippet rcf "react component full"
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
