@@ -3,7 +3,7 @@ snippet t "jsx tag"
 endsnippet
 
 snippet i "import module"
-import ${1} from '${2}'
+import ${1} from '${2}';
 endsnippet
 
 
@@ -127,6 +127,12 @@ componentDidMount() {
 
 endsnippet
 
+snippet cwr "react componentWillReceiveProps lifecycle"
+componentWillReceiveProps(nextProps) {
+	$1
+}
+
+endsnippet
 snippet cdu "react componentDidUpdate lifecycle"
 componentDidUpdate() {
 	$1

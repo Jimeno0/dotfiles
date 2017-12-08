@@ -1,13 +1,18 @@
 call plug#begin('~/.vim/plugged')
   Plug 'Raimondi/delimitMate'                       "auto close quotes and brackets
   
-  Plug 'mxw/vim-jsx'                                "JS sitax plugins
-  Plug 'pangloss/vim-javascript'                    "JS sitax plugins
+  Plug 'mxw/vim-jsx'                                "JS sintax plugins
+  Plug 'pangloss/vim-javascript'                    "JS sintax plugins
   Plug 'hail2u/vim-css3-syntax'                     "CSS styles syntax
   Plug 'jimeno0/vim-chito'                          "custom color scheme
 
+  Plug 'scrooloose/nerdtree'                        "Files tree
+
   Plug 'w0rp/ale'                                   "lint
-  
+
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "FuzzyFinder 
+
+  Plug 'mileszs/ack.vim'                            "Find in fliles with Ack
   Plug 'SirVer/ultisnips'                           "snippets
   Plug 'honza/vim-snippets'                         "snippets
 call plug#end()
@@ -17,6 +22,14 @@ syntax enable
 filetype plugin on                                  "filebrowsing that comes with vim
 set path+=**                                        "set find files recursible
 set wildmenu                                        "display al matches when hit tab
+"set wildignore+=**/node_modules/**
+"set wildignore+=**/.next/**
+"set wildignore+=**/.git/**
+"set wildignore+=**/.storybook/**
+"set wildignore+=**/static/**
+
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'               "allow fuzzy finder to ingore gitignores
+command F FZF
 
 
 set background=dark                                 "Teme colors
@@ -30,10 +43,10 @@ set noswapfile
 set nobackup
 
 set autoread                                        "reload a file if it has change outside vim
-set history=10000                                   "History
+set history=10000                                   "Limit history
 
 let g:UltiSnipsExpandTrigger="<tab>"                "snippets config
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 set laststatus=2                                    "always display statusbar
@@ -62,7 +75,7 @@ nnoremap <CR> :noh<CR><CR>
 let g:ale_linters = {
 \   'javascript': ['eslint']
 \}
-let g:ale_sign_error = '->'
+let g:ale_sign_error = '💥'
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = [
 \ 'eslint',
@@ -74,3 +87,8 @@ let g:ale_fix_on_save = 1
 let mapleader = ","
 nmap <leader>a :Ack! --ignore-dir=node_modules --ignore-dir=.next --ignore-dir=dist --ignore-dir=build --ignore-dir=coverage --ignore-dir=src/messages ""<Left>
 
+" switch panes with ctrl jklh
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
