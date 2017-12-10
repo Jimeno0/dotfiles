@@ -87,8 +87,13 @@ let g:ale_fix_on_save = 1
 let mapleader = ","
 nmap <leader>a :Ack! --ignore-dir=node_modules --ignore-dir=.next --ignore-dir=dist --ignore-dir=build --ignore-dir=coverage --ignore-dir=src/messages ""<Left>
 
+" Until today I used to use caps lock as ESC.
+" From now using caps lock as ctrl and ctrl-c as ESC:
+inoremap <C-c> <Esc>
+
 " switch panes with ctrl jklh
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
