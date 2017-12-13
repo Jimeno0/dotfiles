@@ -92,8 +92,7 @@ nmap <leader>a :Ack! --ignore-dir=node_modules --ignore-dir=.next --ignore-dir=d
 inoremap <C-c> <Esc>
 
 " switch panes with ctrl jklh
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
