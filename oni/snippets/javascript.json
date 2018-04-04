@@ -1,0 +1,25 @@
+{
+   "For_Loop": {
+       "prefix": "for",
+       "body": [
+         "for (const ${2:element} of ${1:array}) {",
+         "\t$0",
+         "}"
+       ],
+       "description": "For Loop"
+   },
+   "Tag": {
+       "prefix": "tag",
+       "body": [
+         "<${1:div}>$0</$1>"
+       ],
+       "description": "html/jsx tag"
+   },
+   "Tag_self_close": {
+       "prefix": "tagc",
+       "body": [
+         "<${1:div}/>"
+       ],
+       "description": "html/jsx tag"
+   }
+}
