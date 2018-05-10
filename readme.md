@@ -5,3 +5,5 @@
 ## Current dotfiles
 
 * vim
+* tmux
+* oni
