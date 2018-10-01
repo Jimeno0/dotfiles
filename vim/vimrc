@@ -45,8 +45,8 @@ if (has("termguicolors"))
 endif
 
 
-"colorscheme nord
-colorscheme chito
+colorscheme nord
+"colorscheme chito
 let g:jsx_ext_required = 0                          "JSX on all file exetensions
 
 
