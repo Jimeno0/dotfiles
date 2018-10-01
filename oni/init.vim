@@ -27,6 +27,10 @@ set nu relativenumber                                "show line number and relat
 "clear hghlight on press enter normal mode
 nnoremap <CR> :noh<CR><CR>  
 
+" From now using caps lock as ctrl and ctrl-c as ESC:
+inoremap <C-c> <Esc>
+
+
 "Linter config
 let g:ale_linters = {
 \   'javascript': ['eslint']
@@ -38,3 +42,4 @@ let g:ale_fixers.javascript = [
 \]
 let g:ale_fix_on_save = 1
 
+colorscheme chito

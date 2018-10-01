@@ -1,16 +1,22 @@
 call plug#begin('~/.vim/plugged')
   Plug 'Raimondi/delimitMate'                       "auto close quotes and brackets
   
+  Plug 'jparise/vim-graphql'                        "Graphql                                
   Plug 'mxw/vim-jsx'                                "JS sintax plugins
   Plug 'pangloss/vim-javascript'                    "JS sintax plugins
+  Plug 'leafgarland/typescript-vim'                 "Typescript sintax plugin
   Plug 'hail2u/vim-css3-syntax'                     "CSS styles syntax
   Plug 'jimeno0/vim-chito'                          "custom color scheme
+  Plug 'kaicataldo/material.vim'                          "custom color scheme
+  Plug 'arcticicestudio/nord-vim'
 
   Plug 'scrooloose/nerdtree'                        "Files tree
-
+  Plug 'benmills/vimux'                             "vimux for run terminal commands without leaving vim
+  
   Plug 'w0rp/ale'                                   "lint
 
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "FuzzyFinder 
+  Plug 'ctrlpvim/ctrlp.vim'       "CtrlP finder
 
   Plug 'mileszs/ack.vim'                            "Find in fliles with Ack
   Plug 'SirVer/ultisnips'                           "snippets
@@ -20,20 +26,26 @@ call plug#end()
 set nocompatible                                    "avoid vim try to be vi
 syntax enable    
 filetype plugin on                                  "filebrowsing that comes with vim
-set path+=**                                        "set find files recursible
+set path+=**                                        "set :find files recursible
 set wildmenu                                        "display al matches when hit tab
-"set wildignore+=**/node_modules/**
-"set wildignore+=**/.next/**
-"set wildignore+=**/.git/**
-"set wildignore+=**/.storybook/**
-"set wildignore+=**/static/**
+set wildignore+=*/min/*,*/vendor/*,*/node_modules/*,*/.next/*,*/.git/* "ignore search on this folders
+
+let NERDTreeShowHidden=1                            " to show dotfiles
+
+let g:ctrlp_show_hidden = 1                         " ctrlP shows hidden files
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'               "allow fuzzy finder to ingore gitignores
 command F FZF
 
 
-set background=dark                                 "Teme colors
-set termguicolors
+set background=dark                                 "Theme colors
+set t_Co=256
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+
+"colorscheme nord
 colorscheme chito
 let g:jsx_ext_required = 0                          "JSX on all file exetensions
 
@@ -73,9 +85,11 @@ nnoremap <CR> :noh<CR><CR>
 
 "Linter config
 let g:ale_linters = {
-\   'javascript': ['eslint']
+\   'javascript': ['eslint'],
+\   'typescript': ['tslint']
 \}
-let g:ale_sign_error = '💥'
+
+"let g:ale_sign_error = '💥'
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = [
 \ 'eslint',
@@ -96,3 +110,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+"Sortcut to use vimux prompt
+map <Leader>vp :VimuxPromptCommand<CR>
+
