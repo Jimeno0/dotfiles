@@ -17,3 +17,6 @@
   default = simple
   # "refuse to push if the upstream branch’s name is different from the local one"
 [core]
+
+[pager]
+  branch = false
