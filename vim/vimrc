@@ -62,12 +62,12 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 set laststatus=2                                    "always display statusbar
-
-                                                    "better copy files ( to be able to do cmd+v)
+"
+"                                                    "better copy files ( to be able to do cmd+v)
 noremap Y "*y
-noremap y "*y
-noremap yy "*yy
-
+"noremap y "*y
+"noremap yy "*yy
+"
 set nu relativenumber                                "show line number and relative line number
 set scrolloff=5                                      "offset of 5 rows on scroll (top/button) 
 
