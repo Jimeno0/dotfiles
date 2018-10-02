@@ -1,0 +1,19 @@
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[user]
+	name = Jimeno0
+	email = c.p.jimeno0@gmail.com
+[alias]
+	undo = reset --soft HEAD^
+	#Undo the commit, remain files in the stagging area
+	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	#Nicer git log
+	stash-all = stash save --include-untracked
+	#add all untracked files to stash to quickly change to another branch
+	# git stash apply to add channges to the workspace
+[push]
+  default = simple
+  # "refuse to push if the upstream branch’s name is different from the local one"
+[core]
