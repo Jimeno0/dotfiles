@@ -9,5 +9,6 @@ ln -sfv "${DIR}/tmux/tmux.conf" ~/.tmux.conf
 ln -sfv "${DIR}/tmux/tmux" ~/.tmux
 ln -sfv "${DIR}/oni" ~/.oni
 ln -sfv "${DIR}/git/gitconfig" ~/.gitconfig
+ln -sfv "${DIR}/ack/ackrc" ~/.ackrc
 
 

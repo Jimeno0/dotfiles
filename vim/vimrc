@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "FuzzyFinder 
   Plug 'ctrlpvim/ctrlp.vim'       "CtrlP finder
+  Plug 'dyng/ctrlsf.vim'          " CtrlSiftF to find
 
   Plug 'mileszs/ack.vim'                            "Find in fliles with Ack
   Plug 'SirVer/ultisnips'                           "snippets
@@ -98,8 +99,8 @@ let g:ale_fix_on_save = 1
 
 
 "remap leader key (default \) to ,a do a search on directory
-let mapleader = ","
-nmap <leader>a :Ack! --ignore-dir=node_modules --ignore-dir=.next --ignore-dir=dist --ignore-dir=build --ignore-dir=coverage --ignore-dir=src/messages ""<Left>
+" let mapleader = ","
+" nmap <leader>a :Ack! --ignore-dir=node_modules --ignore-dir=.next --ignore-dir=dist --ignore-dir=build --ignore-dir=coverage --ignore-dir=src/messages ""<Left>
 
 " Until today I used to use caps lock as ESC.
 " From now using caps lock as ctrl and ctrl-c as ESC:
@@ -110,6 +111,14 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" CrilShiftF shortcuts
+" https://github.com/dyng/ctrlsf.vim
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
 
 "Sortcut to use vimux prompt
 map <Leader>vp :VimuxPromptCommand<CR>
