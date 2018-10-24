@@ -1,4 +1,11 @@
 call plug#begin('~/.vim/plugged')
 
+  Plug 'tyrannicaltoucan/vim-quantum'
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'mxw/vim-jsx'
+  Plug 'pangloss/vim-javascript'
+
 call plug#end()
 
+colorscheme nord
+let g:nord_italic = 1
