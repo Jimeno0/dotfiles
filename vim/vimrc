@@ -1,11 +1,21 @@
 call plug#begin('~/.vim/plugged')
-
-  Plug 'tyrannicaltoucan/vim-quantum'
-  Plug 'arcticicestudio/nord-vim'
   Plug 'mxw/vim-jsx'
   Plug 'pangloss/vim-javascript'
 
+  Plug 'dikiaap/minimalist'
+  Plug 'joshdick/onedark.vim'
+  Plug 'kristijanhusak/vim-hybrid-material'
+  Plug 'jansenfuller/crayon' 
+  Plug 'aliou/moriarty.vim' 
+  Plug 'justb3a/vim-smarties' 
+  Plug 'KeitaNakamura/neodark.vim' 
+  Plug 'liuchengxu/space-vim-dark' 
+  Plug 'juanpabloaj/vim-pixelmuerto' 
+  Plug 'encody/nvim' "works: molokai lyla 
+
+  
+
 call plug#end()
 
-colorscheme nord
-let g:nord_italic = 1
+set background=dark
+colorscheme minimalist
