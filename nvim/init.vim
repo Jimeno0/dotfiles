@@ -34,6 +34,7 @@ colorscheme quantum
 
 "Sidebar tree options
 let NERDTreeShowHidden=1
+map <silent> <C-n> :NERDTreeFind<CR>
 
 
 "Find files and content with ctrlp & ctrlsf
@@ -64,7 +65,8 @@ inoremap <C-c> <Esc>
 
 set colorcolumn=120                                  "highligt 120 column
 set cursorline                                       "hight cursor line
-nnoremap <CR> :noh<CR><CR>                           "Turn off highlight match on press enter
+" Turn off highlight match on press enter
+nnoremap <CR> :noh<CR><CR>                           
 
 "Do not write backups or other bullshit files
 set nowritebackup                                   "do not make backups

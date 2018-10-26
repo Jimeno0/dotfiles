@@ -1,7 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/jimeno0/.vim/plugged/ctrlp.vim'
 let g:netrw_dirhist_2='/Users/jimeno0/.vim/plugged'
 let g:netrw_dirhist_3='/Users/jimeno0/dotfiles/vim/vim'
 let g:netrw_dirhist_4='/Users/jimeno0/dotfiles/nvim'
 let g:netrw_dirhist_5='/Users/jimeno0/dotfiles'
+let g:netrw_dirhist_6='/Users/jimeno0/.vim'
+let g:netrw_dirhist_7='/Users/jimeno0/workspace/influencity/advertiser-next/DMS'
+let g:netrw_dirhist_8='/Users/jimeno0/workspace/influencity/advertiser-next/DMS/shared'
+let g:netrw_dirhist_9='/Users/jimeno0/workspace/influencity/advertiser-next/DMS/shared/InfluencerListItem'

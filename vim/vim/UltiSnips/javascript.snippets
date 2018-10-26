@@ -97,3 +97,26 @@ endsnippet
 snippet  log "console log"
 console.log({$1});
 endsnippet
+
+snippet  story "storybook story"
+import React from 'react';
+import { withInfo } from '@storybook/addon-info';
+import { storiesOf } from '@storybook/react';
+import { $1 } from './';
+
+const info = \`
+	Info:
+	~~~js
+		<$1 />
+	
+	~~~
+\`;
+
+storiesOf('$1', module)
+	.add('default',
+		withInfo(info)(() =>
+			<$1 />
+		)
+	);
+
+endsnippet
