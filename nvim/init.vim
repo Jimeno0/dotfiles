@@ -2,7 +2,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'w0rp/ale' 
-  Plug 'tyrannicaltoucan/vim-quantum'
+  Plug 'dikiaap/minimalist'
   Plug 'mxw/vim-jsx'
   Plug 'pangloss/vim-javascript'
   Plug 'scrooloose/nerdtree'
@@ -27,10 +27,7 @@ let g:ale_sign_warning = '⚠'
 let g:ale_fix_on_save = 1
 
 "Color options
-set background=dark
-set termguicolors
-let g:quantum_italics=1
-colorscheme quantum
+colorscheme minimalist
 
 "Sidebar tree options
 let NERDTreeShowHidden=1
@@ -38,7 +35,9 @@ map <silent> <C-n> :NERDTreeFind<CR>
 
 
 "Find files and content with ctrlp & ctrlsf
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] "exclude folders in gitIgnore
 let g:ctrlp_show_hidden = 1 
+
 nmap     <C-F>f <Plug>CtrlSFPrompt                  
 vmap     <C-F>f <Plug>CtrlSFVwordPath
 vmap     <C-F>F <Plug>CtrlSFVwordExec
@@ -54,16 +53,16 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 "Custon NO-PLUGIN CONFIG
 set nu relativenumber                                "show line number and relative line number
+
 set scrolloff=5                                      "offset of 5 rows on scroll (top/button) 
 
 set breakindent                                      "Mantain indent on wrapping lines
 set autoindent                                       "autoindent
 set tabstop=2 shiftwidth=2 expandtab softtabstop=2   "tabs = 2 spaces
-" Until today I used to use caps lock as ESC.
-" From now using caps lock as ctrl and ctrl-c as ESC:
+" using caps lock as ctrl and ctrl-c as ESC:
 inoremap <C-c> <Esc>
 
-set colorcolumn=120                                  "highligt 120 column
+set colorcolumn=180                                  "highligt 120 column
 set cursorline                                       "hight cursor line
 " Turn off highlight match on press enter
 nnoremap <CR> :noh<CR><CR>                           
@@ -72,14 +71,13 @@ nnoremap <CR> :noh<CR><CR>
 set nowritebackup                                   "do not make backups
 set noswapfile
 set nobackup
-
 set autoread                                        "reload a file if it has change outside vim
 set history=10000                                   "Limit history
 
 "Copy to clipboard on Y
 noremap Y "*y   
 
-" switch panes with ctrl jklh
+"navigate panes with ctrl jklh
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
