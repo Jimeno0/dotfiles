@@ -48,6 +48,8 @@ class ${1} extends Component {
 	}
 };
 
+export {$1};
+
 endsnippet
 
 snippet rp "react proptypes" 
@@ -94,6 +96,16 @@ componentDidUpdate() {
 
 endsnippet
 
+snippet gsf "react get derived state from props"
+static getDerivedStateFromProps(props, state){
+	$1
+	return({
+	$2
+	});
+}
+
+endsnippet
+
 snippet  log "console log"
 console.log({$1});
 endsnippet
@@ -118,5 +130,13 @@ storiesOf('$1', module)
 			<$1 />
 		)
 	);
+
+endsnippet
+
+
+
+snippet gqli "gql imports"
+import { graphql, compose } from 'react-apollo';
+import { $1 } from '$2';
 
 endsnippet
