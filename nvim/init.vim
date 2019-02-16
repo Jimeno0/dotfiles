@@ -1,4 +1,5 @@
 
+" to refresh .init.vim => :so ~/.vimrc
 call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'w0rp/ale' 
@@ -6,6 +7,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
  "Plug 'mxw/vim-jsx'
   Plug 'MaxMEllon/vim-jsx-pretty'
+  Plug 'tpope/vim-commentary'                  "Comment a motion with gc 
   Plug 'pangloss/vim-javascript'
   Plug 'scrooloose/nerdtree'
   Plug 'ctrlpvim/ctrlp.vim'
@@ -23,10 +25,6 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {'javascript': ['standard']}
 
-"let g:ale_fixers = {
-"  \ 'javascript': ['eslint']
-"  \ }
-
 "Linter options
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
@@ -35,8 +33,6 @@ let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 
 "Color options
-"colorscheme minimalist
-"colorscheme onehalflight
 colorscheme onehalfdark
 
 
@@ -97,3 +93,9 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+
+" comment lines with ctrl + /
+nmap <C-_> :Commentary<CR>
+vmap <C-_> :Commentary<CR>
+
