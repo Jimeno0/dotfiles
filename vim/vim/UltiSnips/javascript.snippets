@@ -1,5 +1,5 @@
 snippet t "jsx tag"
-<${1:div}>$0</${1/(\w+).*/$1/}>
+<${1:div} >$0</${1/(\w+).*/$1/}>
 endsnippet
 
 snippet ti "jsx inline tag"
@@ -7,7 +7,7 @@ snippet ti "jsx inline tag"
 endsnippet
 
 snippet i "import module"
-import ${1} from '${2}';
+import ${1} from '${2}'
 endsnippet
 
 
@@ -16,9 +16,9 @@ ${1}: <FormattedMessage id='${2}.${1/(\w+).*/$1/}' defaultMessage='${3}' />,
 endsnippet
 
 snippet ri "react imports"
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 endsnippet
 
 snippet ex "export"
@@ -32,8 +32,8 @@ const ${1} = (props) => {
 		<${2:div}>
 			${3}
 		</${2/(\w+).*/$1/}>
-	);
-};
+	)
+}
 
 endsnippet
 
@@ -44,9 +44,9 @@ class ${1} extends Component {
 			<${2:div}>
 				${3}
 			</${2/(\w+).*/$1/}>
-		);
+		)
 	}
-};
+}
 
 export {$1};
 
@@ -55,12 +55,12 @@ endsnippet
 snippet rp "react proptypes" 
 $1.propTypes = {
   children: PropTypes.node.isRequired,
-};
+}
 
 endsnippet
 
 snippet ris "react import styled"
-import styled {$1} from 'styled-components';
+import styled, {$1} from 'styled-components'
 
 endsnippet
 
@@ -68,7 +68,7 @@ endsnippet
 snippet rs "react styled"
 const ${1} = styled.${2:div}\`
 	${3}
-\`;
+\`
 
 endsnippet
 
@@ -81,7 +81,7 @@ endsnippet
 
 snippet cs "react constructor"
 constructor(props) {
-  super(props);
+  super(props)
 	this.state={
 		$1
 	}
@@ -101,20 +101,20 @@ static getDerivedStateFromProps(props, state){
 	$1
 	return({
 	$2
-	});
+	})
 }
 
 endsnippet
 
 snippet  log "console log"
-console.log({$1});
+console.log({$1})
 endsnippet
 
 snippet  story "storybook story"
-import React from 'react';
-import { withInfo } from '@storybook/addon-info';
-import { storiesOf } from '@storybook/react';
-import { $1 } from './';
+import React from 'react'
+import { withInfo } from '@storybook/addon-info'
+import { storiesOf } from '@storybook/react'
+import { $1 } from './'
 
 const info = \`
 	Info:
@@ -122,14 +122,14 @@ const info = \`
 		<$1 />
 	
 	~~~
-\`;
+\`
 
 storiesOf('$1', module)
 	.add('default',
 		withInfo(info)(() =>
 			<$1 />
 		)
-	);
+	)
 
 endsnippet
 
