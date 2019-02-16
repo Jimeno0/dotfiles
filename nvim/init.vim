@@ -2,8 +2,10 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'w0rp/ale' 
-  Plug 'dikiaap/minimalist'
-  Plug 'mxw/vim-jsx'
+  "Plug 'dikiaap/minimalist'
+  Plug 'sonph/onehalf', {'rtp': 'vim/'}
+ "Plug 'mxw/vim-jsx'
+  Plug 'MaxMEllon/vim-jsx-pretty'
   Plug 'pangloss/vim-javascript'
   Plug 'scrooloose/nerdtree'
   Plug 'ctrlpvim/ctrlp.vim'
@@ -16,18 +18,27 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 call plug#end()
 
+let g:ale_linters = {
+\   'javascript': ['standard'],
+\}
+let g:ale_fixers = {'javascript': ['standard']}
 
-let g:ale_fixers = {
-  \ 'javascript': ['eslint']
-  \ }
+"let g:ale_fixers = {
+"  \ 'javascript': ['eslint']
+"  \ }
 
 "Linter options
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
+
+let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 
 "Color options
-colorscheme minimalist
+"colorscheme minimalist
+"colorscheme onehalflight
+colorscheme onehalfdark
+
 
 "Sidebar tree options
 let NERDTreeShowHidden=1
@@ -73,6 +84,10 @@ set noswapfile
 set nobackup
 set autoread                                        "reload a file if it has change outside vim
 set history=10000                                   "Limit history
+
+" Search case sensitive only when use Capitals letters to find
+:set ignorecase
+:set smartcase
 
 "Copy to clipboard on Y
 noremap Y "*y   
