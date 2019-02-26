@@ -1,127 +1,103 @@
-call plug#begin('~/.vim/plugged')
-  Plug 'Raimondi/delimitMate'                       "auto close quotes and brackets
-  
-  Plug 'jparise/vim-graphql'                        "Graphql                                
-  Plug 'mxw/vim-jsx'                                "JS sintax plugins
-  Plug 'pangloss/vim-javascript'                    "JS sintax plugins
-  Plug 'leafgarland/typescript-vim'                 "Typescript sintax plugin
-  Plug 'hail2u/vim-css3-syntax'                     "CSS styles syntax
-  Plug 'jimeno0/vim-chito'                          "custom color scheme
-  Plug 'kaicataldo/material.vim'                          "custom color scheme
-  Plug 'arcticicestudio/nord-vim'
+" to refresh .init.vim => :so ~/.config/nvim/init.vim
+call plug#begin('~/.local/share/nvim/plugged')
 
-  Plug 'scrooloose/nerdtree'                        "Files tree
-  "Plug 'benmills/vimux'                             "vimux for run terminal commands without leaving vim
-  Plug 'tyrannicaltoucan/vim-quantum'
-  Plug 'kaicataldo/material.vim'
-  
-  Plug 'w0rp/ale'                                   "lint
+  " Some default options preseted
+  " (I remove some default config thanks to this)
+  Plug 'tpope/vim-sensible' 
+  " Linter
+  Plug 'w0rp/ale' 
+  " theme
+  Plug 'sonph/onehalf', {'rtp': 'vim/'}
+  " Sintax hlgt
+  Plug 'jxnblk/vim-mdx-js'
+  Plug 'MaxMEllon/vim-jsx-pretty'
+  Plug 'pangloss/vim-javascript'
+  Plug 'jparise/vim-graphql'
+  Plug 'hail2u/vim-css3-syntax'
+  " Comment a motion with gc 
+  Plug 'tpope/vim-commentary'
+  " files tree
+  Plug 'scrooloose/nerdtree'
+  " search with ctrl-p
+  Plug 'ctrlpvim/ctrlp.vim'
+  " search in files with ctrl-s ===> needs ack: install via -> brew install ack
+  Plug 'dyng/ctrlsf.vim'
+  " auto close quotes and brackets
+  Plug 'Raimondi/delimitMate'
+  " snippets
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
 
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "FuzzyFinder 
-  Plug 'ctrlpvim/ctrlp.vim'       "CtrlP finder
-  Plug 'dyng/ctrlsf.vim'          " CtrlSiftF to find
-
-  Plug 'mileszs/ack.vim'                            "Find in fliles with Ack
-  Plug 'SirVer/ultisnips'                           "snippets
-  Plug 'honza/vim-snippets'                         "snippets
 call plug#end()
 
-set nocompatible                                    "avoid vim try to be vi
-syntax enable    
-filetype plugin on                                  "filebrowsing that comes with vim
-set path+=**                                        "set :find files recursible
-set wildmenu                                        "display al matches when hit tab
-set wildignore+=*/min/*,*/vendor/*,*/node_modules/*,*/.next/*,*/.git/* "ignore search on this folders
-
-let NERDTreeShowHidden=1                            " to show dotfiles
-
-let g:ctrlp_show_hidden = 1                         " ctrlP shows hidden files
-
-"let $FZF_DEFAULT_COMMAND = 'ag -g ""'               "allow fuzzy finder to ingore gitignores
-"command F FZF
-
-
-set background=dark                                 "Theme colors
-set t_Co=256
-if (has("termguicolors"))
-  set termguicolors
-endif
-
-
-"colorscheme material
-"colorscheme quantum
-colorscheme nord
-"colorscheme chito
-let g:jsx_ext_required = 0                          "JSX on all file exetensions
-
-
-set nowritebackup                                   "do not make backups
-set noswapfile
-set nobackup
-
-set autoread                                        "reload a file if it has change outside vim
-set history=10000                                   "Limit history
-
-let g:UltiSnipsExpandTrigger="<tab>"                "snippets config
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
-set laststatus=2                                    "always display statusbar
-"
-"                                                    "better copy files ( to be able to do cmd+v)
-noremap Y "*y
-"noremap y "*y
-"noremap yy "*yy
-"
-set nu relativenumber                                "show line number and relative line number
-set scrolloff=5                                      "offset of 5 rows on scroll (top/button) 
-
-set breakindent                                      "Mantain indent on wrapping lines
-set autoindent                                       "autoindent
-set tabstop=2 shiftwidth=2 expandtab softtabstop=2   "tabs = 2 spaces
-
-set colorcolumn=120                                  "highligt 120 column
-set cursorline                                       "hight cursor line
-
-set hls                                              "highlight search matches
-set is                                               "higlight on search
-"clear hghlight on press enter normal mode
-nnoremap <CR> :noh<CR><CR>  
-
-
-" LINTIN ENGINE
-let g:ale_fixers = {
-  \ 'javascript': ['eslint']
-  \ }
+" Linter options
+let g:ale_linters = {
+\   'javascript': ['standard'],
+\}
+let g:ale_fixers = {'javascript': ['standard']}
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
-highlight ALEErrorSign ctermbg=NONE ctermfg=red
-highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 
+" Color options
+colorscheme onehalfdark
 
-"remap leader key (default \) to ,a do a search on directory
-" let mapleader = ","
-" nmap <leader>a :Ack! --ignore-dir=node_modules --ignore-dir=.next --ignore-dir=dist --ignore-dir=build --ignore-dir=coverage --ignore-dir=src/messages ""<Left>
+" Sidebar nerdtree options
+let NERDTreeShowHidden=1
+map <silent> <C-n> :NERDTreeFind<CR>
 
-" Until today I used to use caps lock as ESC.
-" From now using caps lock as ctrl and ctrl-c as ESC:
-inoremap <C-c> <Esc>
 
-" switch panes with ctrl jklh
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" Find files ctrlp 
+" exclude folders in gitIgnore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_show_hidden = 1 
 
-" CrilShiftF shortcuts
-" https://github.com/dyng/ctrlsf.vim
-nmap     <C-F>f <Plug>CtrlSFPrompt
+" remap for ctrl f 
+nmap     <C-F>f <Plug>CtrlSFPrompt                  
 vmap     <C-F>f <Plug>CtrlSFVwordPath
 vmap     <C-F>F <Plug>CtrlSFVwordExec
 nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
 
-"Sortcut to use vimux prompt
-map <Leader>vp :VimuxPromptCommand<CR>
+" Snippets autocomplete config
+let g:UltiSnipsExpandTrigger="<tab>"               
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+
+
+"################### Custon NO-PLUGIN CONFIG ###############
+
+"show line number and relative line number
+set nu relativenumber
+
+" Indent using spaces instead of tabs
+set expandtab
+
+" Dont wrap lines
+set nowrap
+
+" The number of spaces to use for each indent
+set shiftwidth=2
+
+" Number of spaces to use for a <Tab> during editing operations
+set softtabstop=2
+
+"" Turn off highlight match on press enter
+nnoremap <CR> :noh<CR><CR>                           
+
+" Search case sensitive only when use Capitals letters to find
+:set ignorecase
+:set smartcase
+
+"Copy to clipboard on selection+Y
+noremap Y "*y   
+
+"navigate panes with ctrl jklh
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 
