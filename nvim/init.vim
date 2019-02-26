@@ -1,91 +1,97 @@
-
-" to refresh .init.vim => :so ~/.vimrc
+" to refresh .init.vim => :so ~/.config/nvim/init.vim
 call plug#begin('~/.local/share/nvim/plugged')
 
+  " Some default options preseted
+  " (I remove some default config thanks to this)
+  Plug 'tpope/vim-sensible' 
+  " Linter
   Plug 'w0rp/ale' 
-  "Plug 'dikiaap/minimalist'
+  " theme
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
- "Plug 'mxw/vim-jsx'
+  " Sintax hlgt
+  Plug 'jxnblk/vim-mdx-js'
   Plug 'MaxMEllon/vim-jsx-pretty'
-  Plug 'tpope/vim-commentary'                  "Comment a motion with gc 
   Plug 'pangloss/vim-javascript'
+  Plug 'jparise/vim-graphql'
+  Plug 'hail2u/vim-css3-syntax'
+  " Comment a motion with gc 
+  Plug 'tpope/vim-commentary'
+  " files tree
   Plug 'scrooloose/nerdtree'
+  " search with ctrl-p
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'dyng/ctrlsf.vim'                       "needs ack: install via -> brew install ack
-  Plug 'Raimondi/delimitMate'                  "auto close quotes and brackets
-  Plug 'jparise/vim-graphql'                   "Graphql
-  Plug 'hail2u/vim-css3-syntax'                "CSS styles syntax
-  Plug 'SirVer/ultisnips'                      "snippets
-  Plug 'honza/vim-snippets'                    "snippets
+  " search in files with ctrl-s ===> needs ack: install via -> brew install ack
+  Plug 'dyng/ctrlsf.vim'
+  " auto close quotes and brackets
+  Plug 'Raimondi/delimitMate'
+  " snippets
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
 
 call plug#end()
 
+" Linter options
 let g:ale_linters = {
 \   'javascript': ['standard'],
 \}
 let g:ale_fixers = {'javascript': ['standard']}
-
-"Linter options
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
-
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 
-"Color options
+" Color options
 colorscheme onehalfdark
 
-
-"Sidebar tree options
+" Sidebar nerdtree options
 let NERDTreeShowHidden=1
 map <silent> <C-n> :NERDTreeFind<CR>
 
 
-"Find files and content with ctrlp & ctrlsf
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] "exclude folders in gitIgnore
+" Find files ctrlp 
+" exclude folders in gitIgnore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_show_hidden = 1 
 
+" remap for ctrl f 
 nmap     <C-F>f <Plug>CtrlSFPrompt                  
 vmap     <C-F>f <Plug>CtrlSFVwordPath
 vmap     <C-F>F <Plug>CtrlSFVwordExec
 nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
 
-" Snippets config
+" Snippets autocomplete config
 let g:UltiSnipsExpandTrigger="<tab>"               
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 
-"Custon NO-PLUGIN CONFIG
-set nu relativenumber                                "show line number and relative line number
+"################### Custon NO-PLUGIN CONFIG ###############
 
-set scrolloff=5                                      "offset of 5 rows on scroll (top/button) 
+"show line number and relative line number
+set nu relativenumber
 
-set breakindent                                      "Mantain indent on wrapping lines
-set autoindent                                       "autoindent
-set tabstop=2 shiftwidth=2 expandtab softtabstop=2   "tabs = 2 spaces
-" using caps lock as ctrl and ctrl-c as ESC:
-inoremap <C-c> <Esc>
+" Indent using spaces instead of tabs
+set expandtab
 
-set colorcolumn=180                                  "highligt 120 column
-set cursorline                                       "hight cursor line
-" Turn off highlight match on press enter
+" Dont wrap lines
+set nowrap
+
+" The number of spaces to use for each indent
+set shiftwidth=2
+
+" Number of spaces to use for a <Tab> during editing operations
+set softtabstop=2
+
+"" Turn off highlight match on press enter
 nnoremap <CR> :noh<CR><CR>                           
-
-"Do not write backups or other bullshit files
-set nowritebackup                                   "do not make backups
-set noswapfile
-set nobackup
-set autoread                                        "reload a file if it has change outside vim
-set history=10000                                   "Limit history
 
 " Search case sensitive only when use Capitals letters to find
 :set ignorecase
 :set smartcase
 
-"Copy to clipboard on Y
+"Copy to clipboard on selection+Y
 noremap Y "*y   
 
 "navigate panes with ctrl jklh
@@ -94,8 +100,4 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-
-" comment lines with ctrl + /
-nmap <C-_> :Commentary<CR>
-vmap <C-_> :Commentary<CR>
 
