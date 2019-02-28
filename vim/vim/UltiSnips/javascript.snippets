@@ -114,6 +114,7 @@ snippet  story "storybook story"
 import React from 'react'
 import { withInfo } from '@storybook/addon-info'
 import { storiesOf } from '@storybook/react'
+import { Row, Block } from '../../docs'
 import { $1 } from './'
 
 const info = \`
@@ -125,11 +126,16 @@ const info = \`
 \`
 
 storiesOf('$1', module)
-	.add('default',
-		withInfo(info)(() =>
-			<$1 />
-		)
+  .add('default',
+      withInfo(info)(() =>
+	<Row label='$2'>
+	  <Block label='$3'>
+	    <$1 />
+	  </Block>
+	  </Row>
+
 	)
+      )
 
 endsnippet
 
