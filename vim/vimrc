@@ -1,4 +1,4 @@
-" to refresh .init.vim => :so ~/.config/nvim/init.vim
+" to refresh .init.vim => :so ~/dotfiles/vim/vimrc
 call plug#begin('~/.local/share/nvim/plugged')
 
   " Some default options preseted
@@ -108,5 +108,11 @@ set shiftwidth=2
 " Number of spaces to use for a <Tab> during editing operations
 set softtabstop=2
 
+" using caps lock as ctrl and ctrl-c as ESC:
+" needed to do insert block!!!!
+inoremap <C-c> <Esc>
+
+" avoid swp files
+set noswapfile
 
 
