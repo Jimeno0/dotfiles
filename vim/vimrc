@@ -66,6 +66,9 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
+" Use js snippets in mdx
+autocmd FileType markdown.mdx UltiSnipsAddFiletypes javascript  
+
 " comment lines with ctrl + /
 nmap <C-_> :Commentary<CR>
 vmap <C-_> :Commentary<CR>

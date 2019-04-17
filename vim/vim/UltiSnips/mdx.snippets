@@ -1,0 +1,27 @@
+snippet docz "docz scafolding"
+---
+name: ${1}
+menu: ${2:Components}
+---
+
+import { Playground, Props } from 'docz'
+import { $1 } from '../'
+
+# $1
+
+## Properties
+
+<Props of={$1} />
+
+## Basic usage
+
+<Playground>
+  ${4}
+</Playground>
+
+
+endsnippet
+
+snippet check "check"
+- [ ] ${1}
+endsnippet
