@@ -1,4 +1,5 @@
-" to refresh .init.vim => :so ~/dotfiles/vim/vimrc
+" to refresh .vimrc => :so ~/.vimrc
+" to refresh (in neovim) .init.vim => :so ~/.config/nvim/init.vim
 call plug#begin('~/.local/share/nvim/plugged')
 
   " Some default options preseted
@@ -115,7 +116,7 @@ set softtabstop=2
 " needed to do insert block!!!!
 inoremap <C-c> <Esc>
 
-" avoid swp files
-set noswapfile
+" Add this option to avoid issues with webpack
+:set backupcopy=yes
 
 
