@@ -28,6 +28,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   " snippets
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
+  " md preview realtime
+  Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 call plug#end()
 
@@ -77,6 +79,9 @@ vmap <C-_> :Commentary<CR>
 
 "################### Custon NO-PLUGIN CONFIG ###############
 
+" higlight search
+:set hlsearch
+
 " Turn off highlight match on press enter
 nnoremap <CR> :noh<CR><CR>                           
 
@@ -85,7 +90,10 @@ nnoremap <CR> :noh<CR><CR>
 :set smartcase
 
 "Copy to clipboard on selection+Y
-noremap Y "*y   
+"in MacOS ==> noremap Y "*y   
+"in linux
+noremap Y :w !xclip -i -sel c
+
 
 "navigate panes with ctrl jklh
 nnoremap <C-J> <C-W><C-J>
@@ -98,7 +106,8 @@ nnoremap <C-H> <C-W><C-H>
 :set signcolumn=yes
 
 "show line number and relative line number
-set nu relativenumber
+set nu
+" set relativenumber
 
 " Indent using spaces instead of tabs
 set expandtab
@@ -119,4 +128,6 @@ inoremap <C-c> <Esc>
 " Add this option to avoid issues with webpack
 :set backupcopy=yes
 
-
+"md preview
+filetype plugin on
+let g:instant_markdown_slow = 1
