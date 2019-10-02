@@ -30,14 +30,21 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'honza/vim-snippets'
   " md preview realtime
   Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+  Plug 'chrisbra/Colorizer'
 
 call plug#end()
 
 " Linter options
+
 let g:ale_linters = {
 \   'javascript': ['standard'],
 \}
 let g:ale_fixers = {'javascript': ['standard']}
+
+"let g:ale_fixers = {
+" \ 'javascript': ['eslint']
+" \ }
+
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_lint_on_save = 1
@@ -107,7 +114,7 @@ nnoremap <C-H> <C-W><C-H>
 
 "show line number and relative line number
 set nu
-" set relativenumber
+set relativenumber
 
 " Indent using spaces instead of tabs
 set expandtab
@@ -131,3 +138,4 @@ inoremap <C-c> <Esc>
 "md preview
 filetype plugin on
 let g:instant_markdown_slow = 1
+
