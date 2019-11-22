@@ -6,7 +6,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " (I remove some default config thanks to this)
   Plug 'tpope/vim-sensible' 
   " Linter
-  Plug 'w0rp/ale' 
+  Plug 'dense-analysis/ale' 
   " theme
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
   " Sintax hlgt
@@ -15,6 +15,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'jparise/vim-graphql'
   Plug 'hail2u/vim-css3-syntax'
+  Plug 'leafgarland/typescript-vim'
   " Comment a motion with gc 
   Plug 'tpope/vim-commentary'
   " files tree
@@ -36,14 +37,16 @@ call plug#end()
 
 " Linter options
 
-let g:ale_linters = {
-\   'javascript': ['standard'],
-\}
-let g:ale_fixers = {'javascript': ['standard']}
+" let g:ale_linters = {
+" \   'javascript': ['standard'],
+" \}
+" let g:ale_fixers = {'javascript': ['standard']}
+"
+let g:ale_fixers = ['eslint']
 
-"let g:ale_fixers = {
-" \ 'javascript': ['eslint']
-" \ }
+" let g:ale_fixers = {
+" \   'javascript': ['eslint'],
+" \}
 
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'

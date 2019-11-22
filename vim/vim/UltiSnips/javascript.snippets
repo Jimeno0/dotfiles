@@ -110,39 +110,13 @@ snippet  log "console log"
 console.log({$1})
 endsnippet
 
-snippet  story "storybook story"
-import React from 'react'
-import { withInfo } from '@storybook/addon-info'
-import { storiesOf } from '@storybook/react'
-import { Row, Block } from '../../docs'
-import { $1 } from './'
 
-const info = \`
-	Info:
-	~~~js
-		<$1 />
-	
-	~~~
-\`
-
-storiesOf('$1', module)
-  .add('default',
-      withInfo(info)(() =>
-	<Row label='$2'>
-	  <Block label='$3'>
-	    <$1 />
-	  </Block>
-	  </Row>
-
-	)
-      )
-
+snippet apq "apollo query"
+import { useQuery } from '@apollo/react-hooks'
+import { $1 } from '$2'
 endsnippet
 
-
-
-snippet gqli "gql imports"
-import { graphql, compose } from 'react-apollo';
-import { $1 } from '$2';
-
+snippet apm "apollo mutation"
+import { useMutation } from '@apollo/react-hooks'
+import { $1 } from '$2'
 endsnippet
