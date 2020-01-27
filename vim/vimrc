@@ -31,7 +31,11 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'honza/vim-snippets'
   " md preview realtime
   Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-  Plug 'chrisbra/Colorizer'
+  "mjml syntax (no do emails)
+  Plug 'amadeus/vim-mjml'
+  " autocomplete like VScode
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'ap/vim-css-color'
 
 call plug#end()
 
@@ -81,6 +85,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 " Use js snippets in mdx
 autocmd FileType markdown.mdx UltiSnipsAddFiletypes javascript  
+autocmd FileType mjml UltiSnipsAddFiletypes javascript  
 
 " comment lines with ctrl + /
 nmap <C-_> :Commentary<CR>
