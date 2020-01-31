@@ -11,5 +11,7 @@ ln -sfv "${DIR}/tmux/tmux" ~/.tmux
 ln -sfv "${DIR}/oni" ~/.oni
 ln -sfv "${DIR}/git/gitconfig" ~/.gitconfig
 ln -sfv "${DIR}/ack/ackrc" ~/.ackrc
+ln -sfv "${DIR}/bash/bashrc" ~/.bashrc
+ln -sfv "${DIR}/git/git-prompt.sh" ~/.git-prompt.sh
 
 

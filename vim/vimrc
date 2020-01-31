@@ -36,6 +36,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   " autocomplete like VScode
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'ap/vim-css-color'
+  "support to wakatime
+  Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
