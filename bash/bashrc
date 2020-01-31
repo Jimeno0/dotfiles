@@ -143,6 +143,7 @@ BLUE="\[\033[00;34m\]"
 LIGHT_GRAY="\[\033[0;37m\]"
 CYAN="\[\033[0;36m\]"
 GREEN="\[\033[00;32m\]"
+LIGHT_GREEN="\e[92m\]"
 RED="\[\033[0;31m\]"
 VIOLET='\[\033[01;35m\]'
 
@@ -151,7 +152,7 @@ function color_my_prompt {
   local __cur_location="$BLUE\W"           # capital 'W': current directory, small 'w': full file path
   local __git_branch_color="$GREEN"
   local __prompt_tail="$VIOLET$"
-  local __user_input_color="$LIGHT_GRAY"
+  local __user_input_color="$LIGHT_GREEN"
   local __git_branch=$(__git_ps1);
 
   # colour branch name depending on state
