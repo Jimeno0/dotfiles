@@ -119,3 +119,14 @@ snippet apm "apollo mutation"
 import { useMutation } from '@apollo/react-hooks'
 import { $1 } from '$2'
 endsnippet
+
+snippet rsnap "react snapshot"
+import React from 'react'
+import { render } from '@testing-library/react'
+import { $1 } from '../'
+
+test('$1 renders', () => {
+  const { container, debug } = render(<$1 />)
+  expect(container).toMatchSnapshot()
+})
+endsnippet
