@@ -5,8 +5,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Some default options preseted
   " (I remove some default config thanks to this)
   Plug 'tpope/vim-sensible' 
-  " Linter
-  " Plug 'dense-analysis/ale' 
   " theme
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
   " Sintax hlgt
@@ -16,16 +14,14 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'jparise/vim-graphql'
   Plug 'hail2u/vim-css3-syntax'
   Plug 'leafgarland/typescript-vim'
-  " Comment a motion with gc 
   Plug 'tpope/vim-commentary'
   " files tree
   Plug 'scrooloose/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   " search with ctrl-p
   Plug 'ctrlpvim/ctrlp.vim'
   " search in files with ctrl-s ===> needs ack: install via -> brew install ack
   Plug 'dyng/ctrlsf.vim'
-  " auto close quotes and brackets
-  " Plug 'Raimondi/delimitMate'
   " snippets
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
@@ -39,32 +35,10 @@ call plug#begin('~/.local/share/nvim/plugged')
   "support to wakatime
   Plug 'wakatime/vim-wakatime'
   Plug 'christoomey/vim-tmux-navigator'
-
-  " Plug 'tsony-tsonev/nerdtree-git-plugin'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-  " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'ryanoasis/vim-devicons' "Needs Fura font: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete.ttf
   Plug 'airblade/vim-gitgutter'
 
 call plug#end()
-
-"" Linter options
-
-"" let g:ale_linters = {
-"" \   'javascript': ['standard'],
-"" \}
-"" let g:ale_fixers = {'javascript': ['standard']}
-""
-"let g:ale_fixers = ['eslint']
-
-"" let g:ale_fixers = {
-"" \   'javascript': ['eslint'],
-"" \}
-
-"let g:ale_sign_error = '✘'
-"let g:ale_sign_warning = '⚠'
-"let g:ale_lint_on_save = 1
-"let g:ale_fix_on_save = 1
 
 " Color options
 colorscheme onehalfdark
@@ -87,7 +61,7 @@ vmap     <C-F>F <Plug>CtrlSFVwordExec
 nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
 
-" Snippets autocomplete config
+" Snippets autocomplete config (Now triggered with Coc)
 " let g:UltiSnipsExpandTrigger="<tab>"               
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
@@ -120,13 +94,7 @@ nnoremap <CR> :noh<CR><CR>
 noremap Y :w !xclip -i -sel c
 
 
-"navigate panes with ctrl jklh
-" nnoremap <C-J> <C-W><C-J>
-" nnoremap <C-K> <C-W><C-K>
-" nnoremap <C-L> <C-W><C-L>
-" nnoremap <C-H> <C-W><C-H>
 
-" from Ryan florence -> https://gist.github.com/ryanflorence/6d92b7495873263aec0b4e3c299b3bd3
 " Keep the error column always visible (jumpy when linter runs on input)
 :set signcolumn=yes
 
@@ -156,9 +124,6 @@ inoremap <C-c> <Esc>
 "md preview
 filetype plugin on
 let g:instant_markdown_slow = 1
-
-
-
 
 
 " coc config
