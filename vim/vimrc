@@ -15,28 +15,27 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'hail2u/vim-css3-syntax'
   Plug 'leafgarland/typescript-vim'
   Plug 'tpope/vim-commentary'
+  Plug 'amadeus/vim-mjml'
   " files tree
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'ryanoasis/vim-devicons' "Needs Fura font: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete.ttf
   " search with ctrl-p
   Plug 'ctrlpvim/ctrlp.vim'
   " search in files with ctrl-s ===> needs ack: install via -> brew install ack
   Plug 'dyng/ctrlsf.vim'
-  " snippets
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
   " md preview realtime
   Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-  "mjml syntax (no do emails)
-  Plug 'amadeus/vim-mjml'
   " autocomplete like VScode
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  "navigate like tmux in vim
+  Plug 'christoomey/vim-tmux-navigator'
+  "integrate Git in vim opened files
+  Plug 'airblade/vim-gitgutter'
+  "show css colors
   Plug 'ap/vim-css-color'
   "support to wakatime
   Plug 'wakatime/vim-wakatime'
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'ryanoasis/vim-devicons' "Needs Fura font: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete.ttf
-  Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -60,12 +59,6 @@ vmap     <C-F>f <Plug>CtrlSFVwordPath
 vmap     <C-F>F <Plug>CtrlSFVwordExec
 nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
-
-" Snippets autocomplete config (Now triggered with Coc)
-" let g:UltiSnipsExpandTrigger="<tab>"               
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-" let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 " Use js snippets in mdx
 autocmd FileType markdown.mdx UltiSnipsAddFiletypes javascript  
@@ -127,6 +120,10 @@ let g:instant_markdown_slow = 1
 
 
 " coc config
+" NOTE: we need the coc-settings.json for the eslint autosave
+" NOTE: uses ultisnipets: snippets defined in the vim/UltiSnips folder, also
+" accesible via  :CocCommand snippets.editSnippets 
+
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
@@ -139,8 +136,9 @@ let g:coc_global_extensions = [
 
 " ------------------------------------------------------
 "  
-" " CoC config from: https://github.com/neoclide/coc.nvim
-" 
+" CoC config from: https://github.com/neoclide/coc.nvim
+" just copy/pasted from the readme.md
+"
 " --------------------------------------------------------
 
 
