@@ -38,6 +38,13 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'ap/vim-css-color'
   "support to wakatime
   Plug 'wakatime/vim-wakatime'
+  Plug 'christoomey/vim-tmux-navigator'
+
+  " Plug 'tsony-tsonev/nerdtree-git-plugin'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plug 'ryanoasis/vim-devicons' "Needs Fura font: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete.ttf
+  Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -65,6 +72,7 @@ colorscheme onehalfdark
 " Sidebar nerdtree options
 let NERDTreeShowHidden=1
 map <silent> <C-n> :NERDTreeFind<CR>
+let g:NERDTreeIgnore = ['^node_modules$']
 
 
 " Find files ctrlp 
@@ -113,10 +121,10 @@ noremap Y :w !xclip -i -sel c
 
 
 "navigate panes with ctrl jklh
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
 
 " from Ryan florence -> https://gist.github.com/ryanflorence/6d92b7495873263aec0b4e3c299b3bd3
 " Keep the error column always visible (jumpy when linter runs on input)
