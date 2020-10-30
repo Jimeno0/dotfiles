@@ -3,12 +3,13 @@
 	smudge = git-lfs smudge %f
 	required = true
 [user]
-	name = Jimeno0
-	email = c.p.jimeno0@gmail.com
+	name = Carlos P. Jimeno
+	email = carlos.perezjimeno@gruposantander.com
 [alias]
 	undo = reset --soft HEAD^
 	#Undo the commit, remain files in the stagging area
 	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+        gdiff = difftool --tool=vimdiff
 	#Nicer git log
 	stash-all = stash save --include-untracked
 	#add all untracked files to stash to quickly change to another branch
