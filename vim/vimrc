@@ -7,6 +7,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-sensible' 
   " theme
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
+  Plug 'jimeno0/laserwave'
   " Sintax hlgt
   Plug 'jxnblk/vim-mdx-js'
   Plug 'MaxMEllon/vim-jsx-pretty'
@@ -39,8 +40,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 call plug#end()
 
+set termguicolors
 " Color options
-colorscheme onehalfdark
+" colorscheme onehalfdark
+colorscheme laserwave
 
 " Sidebar nerdtree options
 let NERDTreeShowHidden=1
