@@ -72,7 +72,7 @@ Open vim file and run `:PlugInstall`
 ```
 
 
-* to use install:
+* to use yarn:
 (refer to https://yarnpkg.com/getting-started/install)
 ```bash
   corepack enable
