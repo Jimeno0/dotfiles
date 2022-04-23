@@ -13,6 +13,7 @@ ln -sfv "${DIR}/oni" ~/.oni
 ln -sfv "${DIR}/git/gitconfig" ~/.gitconfig
 ln -sfv "${DIR}/ack/ackrc" ~/.ackrc
 ln -sfv "${DIR}/bash/bashrc" ~/.bashrc
+ln -sfv "${DIR}/zsh/zshrc" ~/.zshrc
 ln -sfv "${DIR}/git/git-prompt.sh" ~/.git-prompt.sh
 ln -sfv "${DIR}/vim/vim/UltiSnips/javascript.snippets" ~/.config/coc/ultisnips/javascript.snippets
 ln -sfv "${DIR}/vim/vim/UltiSnips/markdown.snippets" ~/.config/coc/ultisnips/markdown.snippets

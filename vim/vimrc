@@ -25,8 +25,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'ctrlpvim/ctrlp.vim'
   " search in files with ctrl-s ===> needs ack: install via -> brew install ack
   Plug 'dyng/ctrlsf.vim'
-  " md preview realtime
-  Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
   " autocomplete like VScode
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   "navigate like tmux in vim
@@ -35,8 +33,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'airblade/vim-gitgutter'
   "show css colors
   Plug 'ap/vim-css-color'
-  "support to wakatime
-  Plug 'wakatime/vim-wakatime'
   "Improve copy registers extending " and @
   Plug 'junegunn/vim-peekaboo'
   "Vim maximizer to maximize a split
@@ -140,10 +136,6 @@ inoremap <C-c> <Esc>
 
 " Add this option to avoid issues with webpack
 :set backupcopy=yes
-
-"md preview
-filetype plugin on
-let g:instant_markdown_slow = 1
 
 
 " coc config
