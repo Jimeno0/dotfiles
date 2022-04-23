@@ -1,0 +1,117 @@
+{
+  "t": {
+    "prefix": "t",
+    "body": "<${1:div}>$0</${1/(\\w+).*/$1/}>",
+    "description": "jsx tag"
+  },
+  "ti": {
+    "prefix": "ti",
+    "body": "<${1:div}/>",
+    "description": "jsx inline tag"
+  },
+  "i": {
+    "prefix": "i",
+    "body": "import ${1} from '${2}'",
+    "description": "import module"
+  },
+  "fm": {
+    "prefix": "fm",
+    "body": "${1}: <FormattedMessage id='${2}.${1/(\\w+).*/$1/}' defaultMessage='${3}' />,",
+    "description": "formatted message"
+  },
+  "ri": {
+    "prefix": "ri",
+    "body": "import React from 'react'\nimport styled from 'styled-components'",
+    "description": "react imports"
+  },
+  "ex": {
+    "prefix": "ex",
+    "body": "export {{$1}}\n",
+    "description": "export"
+  },
+  "rf": {
+    "prefix": "rf",
+    "body": "const ${1} = (props) => {\n\treturn (\n\t\t<${2:div}>\n\t\t\t${3}\n\t\t</${2/(\\w+).*/$1/}>\n\t)\n}\n",
+    "description": "react function"
+  },
+  "rc": {
+    "prefix": "rc",
+    "body": "class ${1} extends Component {\n\trender() {\n\t\treturn (\n\t\t\t<${2:div}>\n\t\t\t\t${3}\n\t\t\t</${2/(\\w+).*/$1/}>\n\t\t)\n\t}\n}\n\nexport {$1};\n",
+    "description": "react component"
+  },
+  "rp": {
+    "prefix": "rp",
+    "body": "import PropTypes from 'prop-types'\n\n$1.propTypes = {\n  children: PropTypes.${2:node.isRequired},\n}\n",
+    "description": "react proptypes"
+  },
+  "ris": {
+    "prefix": "ris",
+    "body": "import styled, {$1} from 'styled-components'\n",
+    "description": "react import styled"
+  },
+  "rs": {
+    "prefix": "rs",
+    "body": "const ${1} = styled.${2:div}\\`\n\t${3}\n\\`\n",
+    "description": "react styled"
+  },
+  "cdm": {
+    "prefix": "cdm",
+    "body": "componentDidMount() {\n\t$1\n}\n",
+    "description": "react componentDidMount lifecycle"
+  },
+  "cs": {
+    "prefix": "cs",
+    "body": "constructor(props) {\n  super(props)\n\tthis.state={\n\t\t$1\n\t}\n}\n",
+    "description": "react constructor"
+  },
+  "cdu": {
+    "prefix": "cdu",
+    "body": "componentDidUpdate() {\n\t$1\n}\n",
+    "description": "react componentDidUpdate lifecycle"
+  },
+  "gsf": {
+    "prefix": "gsf",
+    "body": "static getDerivedStateFromProps(props, state){\n\t$1\n\treturn({\n\t$2\n\t})\n}\n",
+    "description": "react get derived state from props"
+  },
+  "apq": {
+    "prefix": "apq",
+    "body": "import { useQuery } from '@apollo/react-hooks'\nimport { $1 } from '$2'",
+    "description": "apollo query"
+  },
+  "apm": {
+    "prefix": "apm",
+    "body": "import { useMutation } from '@apollo/react-hooks'\nimport { $1 } from '$2'",
+    "description": "apollo mutation"
+  },
+  "rsnap": {
+    "prefix": "rsnap",
+    "body": "import React from 'react'\nimport { render } from '@testing-library/react'\nimport { $1 } from '../'\n\ntest('$1 renders', () => {\n  const { container, debug } = render(<$1 />)\n  expect(container).toMatchSnapshot()\n})",
+    "description": "react snapshot"
+  },
+  "rtest": {
+    "prefix": "rtest",
+    "body": "test('$1', () => {\n  const { container, debug } = render(<$2 />)\n  expect($3).$4\n})",
+    "description": " react test"
+  },
+  "test": {
+    "prefix": "test",
+    "body": "test('$1', () => {\n  expect($2).$3\n})",
+    "description": " test"
+  },
+  "describe": {
+    "prefix": "describe",
+    "body": "describe('$1', () => {\n  $2\n})",
+    "description": " describe"
+  },
+  "ruser": {
+    "prefix": "ruser",
+    "body": "import userEvent from '@testing-library/user-event'\nconst handleClick = jest.fn()\nuserEvent.click(button)",
+    "description": " test"
+  },
+  "rnative": {
+    "prefix": "rnative",
+    "body": "import React from 'react'\nimport PropTypes from 'prop-types'\nimport { StyleSheet, View } from 'react-native'\n\nconst $1 = (props) => {\n  const { children, ...rest } = props\n  const styles = stylesGenerator(rest)\n  return (\n    <View>\n      {children}\n    </View>\n  )\n}\n\nexport { $1 }\n\n$1.propTypes = {\n  children: PropTypes.node.isRequired\n}\n\nconst stylesGenerator = (props) => {\n  const { color } = props\n  return StyleSheet.create({\n    basic: {\n      color: color || 'black'\n    }\n  })\n}",
+    "description": "react native"
+  }
+}

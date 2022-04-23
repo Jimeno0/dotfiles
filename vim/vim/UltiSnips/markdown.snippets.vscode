@@ -1,0 +1,17 @@
+{
+  "check": {
+    "prefix": "check",
+    "body": "- [ ] ${1}",
+    "description": "check"
+  },
+  "link": {
+    "prefix": "link",
+    "body": "[${1}](${2})",
+    "description": "link"
+  },
+  "image": {
+    "prefix": "image",
+    "body": "![${1}](${2})",
+    "description": "image"
+  }
+}

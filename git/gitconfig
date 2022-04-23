@@ -3,8 +3,8 @@
 	smudge = git-lfs smudge %f
 	required = true
 [user]
-	name = Carlos P. Jimeno
-	email = carlos.perezjimeno@gruposantander.com
+	name = jimeno0
+	email = jimenocontact@gmail.com
 [alias]
 	undo = reset --soft HEAD^
 	#Undo the commit, remain files in the stagging area

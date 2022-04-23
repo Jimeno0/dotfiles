@@ -19,14 +19,14 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'amadeus/vim-mjml'
   " files tree
   Plug 'scrooloose/nerdtree'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-  Plug 'ryanoasis/vim-devicons' "Needs Fura font: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete.ttf
+ " Plug 'Xuyuanp/nerdtree-git-plugin'
+  "Plug 'ryanoasis/vim-devicons' "Needs Fura font: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete.ttf
   " search with ctrl-p
   Plug 'ctrlpvim/ctrlp.vim'
   " search in files with ctrl-s ===> needs ack: install via -> brew install ack
   Plug 'dyng/ctrlsf.vim'
   " md preview realtime
-  Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+  Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
   " autocomplete like VScode
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   "navigate like tmux in vim
@@ -37,8 +37,17 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'ap/vim-css-color'
   "support to wakatime
   Plug 'wakatime/vim-wakatime'
+  "Improve copy registers extending " and @
+  Plug 'junegunn/vim-peekaboo'
+  "Vim maximizer to maximize a split
+  Plug 'szw/vim-maximizer'
+
+
 
 call plug#end()
+
+" maximize current split or return to previous
+noremap <C-w>m :MaximizerToggle<CR>
 
 set termguicolors
 " Color options
@@ -48,29 +57,43 @@ colorscheme laserwave
 " Sidebar nerdtree options
 let NERDTreeShowHidden=1
 map <silent> <C-n> :NERDTreeFind<CR>
-let g:NERDTreeIgnore = ['^node_modules$']
+let g:NERDTreeWinSize=40
+
+" let g:NERDTreeIgnore = ['^node_modules$']
 
 
 " Find files ctrlp 
 " exclude folders in gitIgnore
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard', '__reports__', 'public']
 let g:ctrlp_show_hidden = 1 
 
-" remap for ctrl f 
+" remap for ctrlf 
 nmap     <C-F>f <Plug>CtrlSFPrompt                  
 vmap     <C-F>f <Plug>CtrlSFVwordPath
 vmap     <C-F>F <Plug>CtrlSFVwordExec
 nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
 
+" igonre folders for ctrl f
+let g:ctrlsf_ignore_dir = ['__reports__', 'demo', 'public', '.cache', 'dist']
+
 " Use js snippets in mdx
 autocmd FileType markdown.mdx UltiSnipsAddFiletypes javascript  
 autocmd FileType mjml UltiSnipsAddFiletypes javascript  
+
+"Consider jsx files as js files in order to use the javascript pluggins 
+augroup filetype_jsx
+    autocmd!
+    autocmd FileType javascriptreact set filetype=javascript
+augroup END
+
 
 " comment lines with ctrl + /
 nmap <C-_> :Commentary<CR>
 vmap <C-_> :Commentary<CR>
 
+" maximize current split or return to previous
+noremap <C-w>m :MaximizerToggle<CR>
 
 "################### Custon NO-PLUGIN CONFIG ###############
 
@@ -85,9 +108,10 @@ nnoremap <CR> :noh<CR><CR>
 :set smartcase
 
 "Copy to clipboard on selection+Y
-"in MacOS ==> noremap Y "*y   
+" in MacOS ==>
+noremap Y "*y   
 "in linux
-noremap Y :w !xclip -i -sel c
+" noremap Y :w !xclip -i -sel c
 
 
 
@@ -96,7 +120,7 @@ noremap Y :w !xclip -i -sel c
 
 "show line number and relative line number
 set nu
-set relativenumber
+" set relativenumber
 
 " Indent using spaces instead of tabs
 set expandtab
@@ -130,10 +154,11 @@ let g:instant_markdown_slow = 1
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
-  \ 'coc-tsserver',
   \ 'coc-eslint',
+  \ 'coc-tsserver',
   \ 'coc-prettier',
   \ 'coc-json',
+  \ 'coc-flow',
   \ ]
 
 
