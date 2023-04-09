@@ -23,10 +23,11 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'nvim-tree/nvim-tree.lua'
   " To enable icons in nvim-tree it requieres a patched font (IE: FiraCode from https://www.nerdfonts.com/) enabled in the terminal.
   Plug 'nvim-tree/nvim-web-devicons'
-  " search with ctrl-p
-  Plug 'ctrlpvim/ctrlp.vim'
-  " search in files with ctrl-s ===> needs ack: install via -> brew install ack
-  Plug 'dyng/ctrlsf.vim'
+  " fuzzy finder for files, buffers, mru, tags, etc.
+  " NEEDS brew install ripgrep
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make', 'branch': 'main' }
   " md preview realtime
   Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
   " autocomplete like VScode
@@ -53,6 +54,12 @@ call plug#end()
 luafile ~/.config/nvim/nvimrc.lua
 let g:nvim_tree_auto_open = 1
 
+" use nvim Telescome finder
+nnoremap <C-P> <cmd>Telescope find_files<cr>
+nnoremap <C-F> <cmd>Telescope live_grep<cr>
+" TODO check how ignore files in search. Something like I use to do with ctrl f: 
+" I E: let g:ctrlsf_ignore_dir = ['__reports__', 'demo', 'public', '.cache', 'dist', 'ddbb_backups']
+" TODO find word on top of the cursor
 
 
 " maximize current split or return to previous
@@ -62,23 +69,6 @@ set termguicolors
 " Color options
 " colorscheme onehalfdark
 colorscheme laserwave
-
-
-" Find files ctrlp 
-" exclude folders in gitIgnore
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard', '__reports__', 'public']
-let g:ctrlp_show_hidden = 1 
-
-" remap for ctrlf 
-nmap     <C-F>f <Plug>CtrlSFPrompt                  
-vmap     <C-F>f <Plug>CtrlSFVwordPath
-vmap     <C-F>F <Plug>CtrlSFVwordExec
-nmap     <C-F>n <Plug>CtrlSFCwordPath
-nmap     <C-F>p <Plug>CtrlSFPwordPath
-
-" igonre folders for ctrl f
-let g:ctrlsf_ignore_dir = ['__reports__', 'demo', 'public', '.cache', 'dist', 'ddbb_backups']
-
 
 "Consider t/jsx files as t/js files in order to use the javascript pluggins 
 augroup filetype_jsx
