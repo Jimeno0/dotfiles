@@ -1,0 +1,191 @@
+snippet t "jsx tag"
+<${1:div}>$0</${1/(\w+).*/$1/}>
+endsnippet
+
+snippet ti "jsx inline tag"
+<${1:div}/>
+endsnippet
+
+snippet i "import module"
+import ${1} from '${2}'
+endsnippet
+
+
+snippet fm "formatted message"
+${1}: <FormattedMessage id='${2}.${1/(\w+).*/$1/}' defaultMessage='${3}' />,
+endsnippet
+
+snippet ri "react imports"
+import React from 'react'
+import styled from 'styled-components'
+endsnippet
+
+snippet ex "export"
+export {{$1}}
+
+endsnippet
+
+snippet rf "react function" 
+const ${1} = (props) => {
+	return (
+		<${2:div}>
+			${3}
+		</${2/(\w+).*/$1/}>
+	)
+}
+
+endsnippet
+
+snippet rc "react component"
+class ${1} extends Component {
+	render() {
+		return (
+			<${2:div}>
+				${3}
+			</${2/(\w+).*/$1/}>
+		)
+	}
+}
+
+export {$1};
+
+endsnippet
+
+snippet rp "react proptypes" 
+import PropTypes from 'prop-types'
+
+$1.propTypes = {
+  children: PropTypes.${2:node.isRequired},
+}
+
+endsnippet
+
+snippet ris "react import styled"
+import styled, {$1} from 'styled-components'
+
+endsnippet
+
+
+snippet rs "react styled"
+const ${1} = styled.${2:div}\`
+	${3}
+\`
+
+endsnippet
+
+snippet cdm "react componentDidMount lifecycle"
+componentDidMount() {
+	$1
+}
+
+endsnippet
+
+snippet cs "react constructor"
+constructor(props) {
+  super(props)
+	this.state={
+		$1
+	}
+}
+
+endsnippet
+
+snippet cdu "react componentDidUpdate lifecycle"
+componentDidUpdate() {
+	$1
+}
+
+endsnippet
+
+snippet gsf "react get derived state from props"
+static getDerivedStateFromProps(props, state){
+	$1
+	return({
+	$2
+	})
+}
+
+endsnippet
+
+snippet  log "console log"
+console.log({$1})
+endsnippet
+
+
+snippet apq "apollo query"
+import { useQuery } from '@apollo/react-hooks'
+import { $1 } from '$2'
+endsnippet
+
+snippet apm "apollo mutation"
+import { useMutation } from '@apollo/react-hooks'
+import { $1 } from '$2'
+endsnippet
+
+snippet rsnap "react snapshot"
+import React from 'react'
+import { render } from '@testing-library/react'
+import { $1 } from '../'
+
+test('$1 renders', () => {
+  const { container, debug } = render(<$1 />)
+  expect(container).toMatchSnapshot()
+})
+endsnippet
+
+snippet rtest " react test"
+test('$1', () => {
+  const { container, debug } = render(<$2 />)
+  expect($3).$4
+})
+endsnippet
+
+snippet test " test"
+test('$1', () => {
+  expect($2).$3
+})
+endsnippet
+
+snippet describe " describe"
+describe('$1', () => {
+  $2
+})
+endsnippet
+
+snippet ruser " test"
+import userEvent from '@testing-library/user-event'
+const handleClick = jest.fn()
+userEvent.click(button)
+endsnippet
+
+
+snippet rnative "react native"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StyleSheet, View } from 'react-native'
+
+const $1 = (props) => {
+  const { children, ...rest } = props
+  const styles = stylesGenerator(rest)
+  return (
+    <View>
+      {children}
+    </View>
+  )
+}
+
+export { $1 }
+
+$1.propTypes = {
+  children: PropTypes.node.isRequired
+}
+
+const stylesGenerator = (props) => {
+  const { color } = props
+  return StyleSheet.create({
+    basic: {
+      color: color || 'black'
+    }
+  })
+}
+endsnippet
